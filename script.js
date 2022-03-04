@@ -21,7 +21,8 @@ event.preventDefault();
     if (day <= 0 || day > 31) {
         alert("enter valid date");
         return false;
-    } else if (month <= 0 || month > 12) {
+    }
+    else if (month <= 0 || month > 12) 
         alert("enter valid month");
         return false;  
 }
