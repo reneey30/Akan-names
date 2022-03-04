@@ -1,12 +1,9 @@
- .container {
-     align-items: center;
-     background-color: cyan;
- }
- #top {
-     height: 60px;
-     text-align: left;
-     background-color: darkcyan;
- }
-
-
-
+.container {
+  align-items: center;
+  background-color: cyan;
+}
+#top {
+  height: 60px;
+  text-align: left;
+  background-color: darkcyan;
+}
