@@ -2,6 +2,10 @@
   align-items: center;
   background-color: cyan;
 }
+h1 {
+  text-align: left;
+  font-size: 35px;
+}
 
 #top {
   height: 40px;
