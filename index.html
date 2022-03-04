@@ -14,40 +14,37 @@
 
 <body>
 
-    <div class="container big-success col-sm-7">
+    <div class="container big-success col-sm-5">
         <img src="akan.jpg" alt="">
         <legend id="high">Get your Akan name</legend>
         <form><br />
             <p>Input your birthday details and get your Akan name</p>
             <p></p>
-            <div class="day">
-                <label for="day">Day:</label>
-                <div class="col-sm-5">
-                    <input type="day" name="day" id="day" maxlength="2">
-                </div>
+            <div class="form-group">
+                <label for="number">Year of Birth:</label>
+                <input type="number" class="form-control" id="year" placeholder="Year of Birth Eg: 1995 if born in 1995"
+                    name="year">
             </div><br>
-            <div class="month">
-                <label for="month">Month:</label>
-                <div class="col-sm-5">
-                    <input type="month" name="month" id="month" maxlength="2" required>
-                </div>
+            <div class="form-group">
+                <label for="date">Date of Birth:</label>
+                <input type="number" class="form-control" id="date" placeholder="Date of Birth"
+                    name="date">
             </div>
-            <div class="year">
-                <label for="year">Year:</label>
-                <div class="col-sm-5">
-                    <input type="year" name="year" id="year" maxlength="4" required>
-                </div>
-            </div>
+    </div>
+    <div class="form-group">
+        <label for="month">Month of Birth:</label>
+        <input type="number" class="form-control" id="month" placeholder="Month of Birth eg 08 for August" name="month">
+    </div>
 
-            <label>MALE</label><br>
-            <input type="radio" id="male" name="gender" required>
-            <div class="btn"></div><br>
-            <label>FEMALE</label><br>
-            <input type="radio" id="female" name="gender" required>
-            <div class="btn"><br>
-                <button type="submit" value="submit" class="btn-outline-info" click="akanname(event)">submit</button>
+    <label>MALE</label><br>
+    <input type="radio" id="male" name="gender" required>
+    <div class="btn"></div><br>
+    <label>FEMALE</label><br>
+    <input type="radio" id="female" name="gender" required>
+    <div class="btn"><br>
+        <button type="submit" value="submit" class="btn-outline-info" click="akanname(event)">submit</button>
         </form>
-        
+
         <script scr="script.js"></script>
 </body>
 

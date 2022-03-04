@@ -2,13 +2,14 @@
   align-items: center;
   background-color: cyan;
 }
+
 #top {
-  height: 60px;
+  height: 40px;
   text-align: left;
   background-color: darkcyan;
 }
 #akanname {
-    color: blue;
-    text-align: center;
-    font-size: 35px;
+  color: blue;
+  text-align: left;
+  font-size: 35px;
 }
