@@ -1,7 +1,8 @@
-function akaname(event) {
-
-    var maleName = ["kwasi", "kwadwo", "kwabena", "kwaku", "yaw", "kofi", "kwame"];
+function akaname(event)
+ {
+    var CC, YY, MM, DD, d, dayValue;
     var femaleName = ["Akosua", "Adwao", "Abenaa", "Akua ", "Yaa", "Afua", "Ama"];
+    var maleName = ["kwasi", "kwadwo", "kwabena", "kwaku", "yaw", "kofi", "kwame"];
     var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursady", "Friday", "Saturday"];
     event.preventDefault();
 
