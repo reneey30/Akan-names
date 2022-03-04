@@ -3,7 +3,7 @@ function akannames(event) {
   var weekDays = [
     "Sunday",
     "Monday",
-    "Tueday",
+    "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
@@ -29,12 +29,11 @@ function akannames(event) {
   var name = document.getElementById("akan-name");
 
   if (
-    (day == null || day == "",
-    month == null || month == "",
-    year == null || year == "")
-  ) {
+    day == null || day == "", month == null || month == "", year == null || year == ""
+  ){
     alert("Please Fill All Required Field");
     return false;
+    
   }
   if (day <= 0 || day > 31) {
     alert("enter valid date");
@@ -42,8 +41,8 @@ function akannames(event) {
   } else if (month <= 0 || month > 12) {
     alert("enter valid month");
     return false;
-  } else 
-  { return true;
+  } else {
+    return true;
 
   }
 
@@ -59,15 +58,15 @@ function akannames(event) {
   );
 
   if (male.checked == true) {
-    for (var a = 0; a < maleName.length; a++) {
+    for (var a = 0; a <maleName.length; a++) {
       if (a === dayOfTheWeek - 1) {
-        rname.innerHTML = "Your Akan name is " + maleName[a];
+        rname.innerHTML = "Your Akan name is" + maleName[a];
       }
     }
   } else if (female.checked == true) {
-    for (var a = 0; a < femaleName.length; a++) {
+    for (var a = 0; a <femaleName.length; a++) {
       if (a === dayOfTheWeek - 1) {
-        rname.innerHTML = "Your Akan name is " + femaleName[a];
+        rname.innerHTML = "Your Akan name is" + femaleName[a];
       }
     }
   }
