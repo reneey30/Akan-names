@@ -1,73 +1,83 @@
-function akannames(event) {
-  var CC, DD, MM, YY, d, dayvalue;
-  var weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
-  var maleNames = [
-    "Kwasi",
-    "Kwadwo",
-    "Kwabena",
-    "Kwaku",
-    "Yaw",
-    "Kofi",
-    "Kwame",
-  ];
-  event.preventDefault();
+let form  = document.getElementById('akan-form')
 
-  var day = parseInt(document.getElementById)("day").value;
-  var month = parseInt(document.getElementById)("month").value;
-  var year = parseInt(document.getElementById)("year").value;
-  var male = document.getElementById("male");
-  var female = document.getElementById("female");
-  var name = document.getElementById("akan-name");
-
-  if (
-    day == null || day == "", month == null || month == "", year == null || year == ""
-  ){
-    alert("Please Fill All Required Field");
-    return false;
-    
+validDate= (formgroup)=>{
+  if(!formgroup || formgroup.split('-').length !== 3){
+    alert("Invalid Date!")
+    return false
   }
-  if (day <= 0 || day > 31) {
-    alert("enter valid date");
-    return false;
-  } else if (month <= 0 || month > 12) {
-    alert("enter valid month");
-    return false;
-  } else {
-    return true;
-
-  }
-
-  var sliceY = year % 100;
-  var sliceC = Math.floor(year / 100);
-  var c = parseInt(sliceC);
-  var y = parseInt(sliceY);
-  var d = day;
-  var m = month;
-
-  var dayOfTheWeek = Math.round(
-    (c / 4 - 2 * c - 1 + (5 * y) / 4 + (26 * (m + 1)) / 10 + d) % 7
-  );
-
-  if (male.checked == true) {
-    for (var a = 0; a <maleName.length; a++) {
-      if (a === dayOfTheWeek - 1) {
-        rname.innerHTML = "Your Akan name is" + maleName[a];
-      }
-    }
-  } else if (female.checked == true) {
-    for (var a = 0; a <femaleName.length; a++) {
-      if (a === dayOfTheWeek - 1) {
-        rname.innerHTML = "Your Akan name is" + femaleName[a];
-      }
-    }
-  }
+  return true
 }
+
+
+form.addEventListener('submit', function (e){
+  e.preventDefault()
+
+  //Get form values
+  let formgroup = form.formgroup.value
+
+  let gender = form.gender.value
+
+
+  if(validDate(formgroup)){ //validate form
+
+    let splitted_date = formgroup.split('-') // ["YYYY","MM","DD"]
+
+    let akan_names = {
+      male:{
+        sunday:"Kwasi",
+        monday:"Kwadwo",
+        tuesday:"Kwabena",
+        wednesday:"Kwaku",
+        thursday:"Yaw",
+        friday:"Kofi",
+        saturday:"Kwame",
+      },
+      female:{
+        sunday:"Akosua",
+        monday:"Adwoa",
+        tuesday:"Abenaa",
+        wednesday:"Akua",
+        thursday:"Yaa",
+        friday:"Afua",
+        saturday:"Ama",
+      }
+    }
+
+    let weekdays = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday",]
+
+    // ["2022","03","04"]
+    // Substitute splitted_date values in the formula to get the weekday
+    // (( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) mod 7
+    //where;
+    //
+    //  CC - is the century digits. For example 1989 has CC = 19
+    //
+    //  YY - is the Year digits (1989 has YY = 89)
+    //
+    //  MM -  is the Month
+    //
+    //  DD - is the Day of the month
+    //
+    //  mod - is the modulus function ( % )
+    // let CC = parseInt(splitted_date[0].slice(0,2))
+    // let YY = parseInt(splitted_date[0].slice(2))
+    // let MM = parseInt(splitted_date[1])
+    // let DD = parseInt(splitted_date[2])
+    //
+    // let day_of_the_week = (( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7
+
+    let valid_date = new Date(splitted_date[0],splitted_date[1],splitted_date[2])
+    let weekday_index = valid_date.getDay()
+    let weekday_name = weekdays[weekday_index]
+
+    // Use the weekday name to get akan name
+    let possible_names = akan_names[gender]
+    let akan_name = possible_names[weekday_name] //Get the akan name from the list of possible names
+
+    let elem = document.getElementById('akan-name')
+    elem.innerHTML = akan_name
+  }else{ //form is not valid. Return
+    return false
+  }
+
+})
