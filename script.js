@@ -42,6 +42,9 @@ function akannames(event) {
   } else if (month <= 0 || month > 12) {
     alert("enter valid month");
     return false;
+  } else 
+  { return true;
+
   }
 
   var sliceY = year % 100;
