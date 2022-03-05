@@ -1,25 +1,35 @@
 let form = document.getElementById("akan-form");
 
-validDate = (formgroup) => {
-  if (!formgroup || formgroup.split("-").length !== 3) {
+validDate = (date) => {
+  if  date.split("-").filter(el => el).length !== 3) {
     alert("Invalid Date!");
     return false;
   }
   return true;
 };
 
+ensureGender= (gender)=>{
+  if (!gender) || !["male","female"].includes(gender) ){
+    alert("please select a gender")
+    return false
+  }
+  return true
+}
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   //Get form values
-  let formgroup = form.formgroup.value;
+  let data = new FormData(form);
 
-  let gender = form.gender.value;
+  let form_data = Array.from(data.entries());
 
-  if (validDate(formgroup)) {
+  let date =form_data.slice(0,3).map(entry =>[1]).join("-");
+  let gender = form_data.slice(-1[0][1]);
+
+  if (validDate(date) && ensureGender(gender)) {
     //validate form
 
-    let splitted_date = formgroup.split("-"); // ["YYYY","MM","DD"]
+    let splitted_date = date.split("-"); // ["YYYY","MM","DD"]
 
     let akan_names = {
       male: {
@@ -92,3 +102,7 @@ form.addEventListener("submit", function (e) {
     return false;
   }
 });
+
+}
+
+}
