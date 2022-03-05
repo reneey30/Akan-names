@@ -1,49 +1,56 @@
-let form  = document.getElementById('akan-form')
+let form = document.getElementById("akan-form");
 
-validDate= (formgroup)=>{
-  if(!formgroup || formgroup.split('-').length !== 3){
-    alert("Invalid Date!")
-    return false
+validDate = (formgroup) => {
+  if (!formgroup || formgroup.split("-").length !== 3) {
+    alert("Invalid Date!");
+    return false;
   }
-  return true
-}
+  return true;
+};
 
-
-form.addEventListener('submit', function (e){
-  e.preventDefault()
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
   //Get form values
-  let formgroup = form.formgroup.value
+  let formgroup = form.formgroup.value;
 
-  let gender = form.gender.value
+  let gender = form.gender.value;
 
+  if (validDate(formgroup)) {
+    //validate form
 
-  if(validDate(formgroup)){ //validate form
-
-    let splitted_date = formgroup.split('-') // ["YYYY","MM","DD"]
+    let splitted_date = formgroup.split("-"); // ["YYYY","MM","DD"]
 
     let akan_names = {
-      male:{
-        sunday:"Kwasi",
-        monday:"Kwadwo",
-        tuesday:"Kwabena",
-        wednesday:"Kwaku",
-        thursday:"Yaw",
-        friday:"Kofi",
-        saturday:"Kwame",
+      male: {
+        sunday: "Kwasi",
+        monday: "Kwadwo",
+        tuesday: "Kwabena",
+        wednesday: "Kwaku",
+        thursday: "Yaw",
+        friday: "Kofi",
+        saturday: "Kwame",
       },
-      female:{
-        sunday:"Akosua",
-        monday:"Adwoa",
-        tuesday:"Abenaa",
-        wednesday:"Akua",
-        thursday:"Yaa",
-        friday:"Afua",
-        saturday:"Ama",
-      }
-    }
+      female: {
+        sunday: "Akosua",
+        monday: "Adwoa",
+        tuesday: "Abenaa",
+        wednesday: "Akua",
+        thursday: "Yaa",
+        friday: "Afua",
+        saturday: "Ama",
+      },
+    };
 
-    let weekdays = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday",]
+    let weekdays = [
+      "sunday",
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+    ];
 
     // ["2022","03","04"]
     // Substitute splitted_date values in the formula to get the weekday
@@ -66,18 +73,22 @@ form.addEventListener('submit', function (e){
     //
     // let day_of_the_week = (( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7
 
-    let valid_date = new Date(splitted_date[0],splitted_date[1],splitted_date[2])
-    let weekday_index = valid_date.getDay()
-    let weekday_name = weekdays[weekday_index]
+    let valid_date = new Date(
+      splitted_date[0],
+      splitted_date[1],
+      splitted_date[2]
+    );
+    let weekday_index = valid_date.getDay();
+    let weekday_name = weekdays[weekday_index];
 
     // Use the weekday name to get akan name
-    let possible_names = akan_names[gender]
-    let akan_name = possible_names[weekday_name] //Get the akan name from the list of possible names
+    let possible_names = akan_names[gender];
+    let akan_name = possible_names[weekday_name]; //Get the akan name from the list of possible names
 
-    let elem = document.getElementById('akan-name')
-    elem.innerHTML = akan_name
-  }else{ //form is not valid. Return
-    return false
+    let elem = document.getElementById("akan-name");
+    elem.innerHTML = akan_name;
+  } else {
+    //form is not valid. Return
+    return false;
   }
-
-})
+});
