@@ -1,7 +1,7 @@
 let form = document.getElementById("akan-form");
 
 validDate = (date) => {
-  if  date.split("-").filter(el => el).length !== 3) {
+  if(date.split("-").filter(el => el).length !== 3) {
     alert("Invalid Date!");
     return false;
   }
@@ -9,7 +9,7 @@ validDate = (date) => {
 };
 
 ensureGender= (gender)=>{
-  if (!gender) || !["male","female"].includes(gender) ){
+  if (!gender || !["male","female"].includes(gender) ){
     alert("please select a gender")
     return false
   }
@@ -23,7 +23,7 @@ form.addEventListener("submit", function (e) {
 
   let form_data = Array.from(data.entries());
 
-  let date =form_data.slice(0,3).map(entry =>[1]).join("-");
+  let date = form_data.slice(0,3).map(entry =>[1]).join("-");
   let gender = form_data.slice(-1[0][1]);
 
   if (validDate(date) && ensureGender(gender)) {
@@ -83,25 +83,25 @@ form.addEventListener("submit", function (e) {
     //
     // let day_of_the_week = (( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7
 
-    let valid_date = new Date(
-      splitted_date[0],
-      splitted_date[1],
-      splitted_date[2]
-    );
-    let weekday_index = valid_date.getDay();
-    let weekday_name = weekdays[weekday_index];
+//     let valid_date = new Date(
+//       splitted_date[0],
+//       splitted_date[1],
+//       splitted_date[2]
+//     );
+//     let weekday_index = valid_date.getDay();
+//     let weekday_name = weekdays[weekday_index];
 
-    // Use the weekday name to get akan name
-    let possible_names = akan_names[gender];
-    let akan_name = possible_names[weekday_name]; //Get the akan name from the list of possible names
+//     // Use the weekday name to get akan name
+//     let possible_names = akan_names[gender];
+//     let akan_name = possible_names[weekday_name]; //Get the akan name from the list of possible names
 
-    let elem = document.getElementById("akan-name");
-    elem.innerHTML = akan_name;
-  } else {
-    //form is not valid. Return
-    return false;
-  }
-});
+//     let elem = document.getElementById("akan-name");
+//     elem.innerHTML = akan_name;
+//   } else {
+//     //form is not valid. Return
+//     return false;
+//   }
+// });
 
 }
 
