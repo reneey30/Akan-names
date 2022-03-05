@@ -15,15 +15,16 @@
 <body>
     <div class="container">
         <div class="jumbotron">
+
             <img src="akan.jpg" alt=""><br>
             <legend id="high">Get your Akan name</legend>
 
-            <form id="akan-form" action="/" method="POST"><br>
+            <form id="akan-form"><br>
                 <p>Input your birthday details and get your Akan name</p>
                 <div class="form-group">
                     <label for="year">Year of Birth:</label>
-                    <input type="number" class="form-control" id="year" name="year"
-                        placeholder="Year of Birth Eg: 1995 if born in 1995">
+                    <input type="number" class="form-control" id="year"
+                        placeholder="Year of Birth Eg 1995 if born in 1995" name="year">
                 </div><br>
                 <div class="form-group">
                     <label for="month">Month of Birth:</label>
@@ -36,16 +37,18 @@
                 </div><br>
 
                 <label>MALE</label></br>
-                <input type="radio" id="male" name="gender" required> </br>
+                <input type="radio" id="male" name="gender" value="male"></br>
                 <label>FEMALE</label></br>
-                <input type="radio" id="female" name="gender" required> </br>
+                <input type="radio" id="female" name="gender" value="female"></br>
                 <div class="btn">
-                    <input type="button" value="POST" onClick="POST" ()>
+                    <input type="submit" value="compute" onclick="compute()">
+
+                </div>
             </form>
-            <h2 id="akan-name"></h2>
+    
 
         </div>
-        <script src="script.js"></script>
+        <script src="./script.js"></script>
 </body>
 
 </html>
