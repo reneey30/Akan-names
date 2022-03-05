@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="mystyle.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Akan Names</title>
 </head>
 <h1>Welcome to Akan Names</h1>
@@ -17,12 +17,13 @@
         <div class="jumbotron">
             <img src="akan.jpg" alt=""><br>
             <legend id="high">Get your Akan name</legend>
+
             <form id="akan-form" action="/" method="POST"><br>
                 <p>Input your birthday details and get your Akan name</p>
                 <div class="form-group">
                     <label for="year">Year of Birth:</label>
-                    <input type="number" class="form-control" id="year"
-                    name="year" placeholder="Year of Birth Eg: 1995 if born in 1995" >
+                    <input type="number" class="form-control" id="year" name="year"
+                        placeholder="Year of Birth Eg: 1995 if born in 1995">
                 </div><br>
                 <div class="form-group">
                     <label for="month">Month of Birth:</label>
@@ -39,8 +40,7 @@
                 <label>FEMALE</label></br>
                 <input type="radio" id="female" name="gender" required> </br>
                 <div class="btn">
-                    <input type="button" value="Compute" onClick="compute()">
-
+                    <input type="button" value="POST" onClick="POST" ()>
             </form>
             <h2 id="akan-name"></h2>
 
