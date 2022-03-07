@@ -32,3 +32,6 @@ Bootstrap
 Contact Information:
 
 If you have any question or contributions, please email me at [irene.njeru@student.moringaschool.com]
+
+Copyright:
+MIT, 2022
